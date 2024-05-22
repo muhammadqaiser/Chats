@@ -20,7 +20,7 @@ app.use("/api/chat",router);
 app.use("/api/messages", msgRouter);
 app.use("/api/users", userRoutes);
 
-server.listen(PORT,() => {
-    connectMongo();
-    console.log(`SERVER running on port ${PORT}`);
+server.listen(PORT, () => {
+	connectMongo();
+	console.log(`Server Running on port ${PORT}`);
 });
