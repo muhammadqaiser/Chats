@@ -12,7 +12,6 @@ const io = new Server(server, {
 	},
 });
 
-
 const userSocketMap = {}; // {userId: socketId}
 
 io.on("connection", (socket) => {
