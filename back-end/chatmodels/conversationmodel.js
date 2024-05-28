@@ -1,4 +1,3 @@
-import express from "express";
 import mongoose from "mongoose";
 
 const connversationSchema = new mongoose.Schema({
@@ -10,7 +9,7 @@ const connversationSchema = new mongoose.Schema({
     ],
     messages: [
         {
-            type: mongoose.Schema.Types.Object,
+            type: mongoose.Schema.Types.ObjectId,
             ref: "Message",
             default: [],
         }

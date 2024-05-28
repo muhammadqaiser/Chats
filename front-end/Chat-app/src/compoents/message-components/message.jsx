@@ -1,7 +1,6 @@
-import React from 'react'
-import { useChatContext } from '../../context/chats-context'
-import useConversation from '../../zustand/useConversation';
-import { extractTime } from '../../utils/extractTime';
+import { useChatContext } from "../../context/chats-context";
+import { extractTime } from "../../utils/extractTime";
+import useConversation from "../../zustand/useConversation";
 
 const Message = ({ message }) => {
 	const { chatUser } = useChatContext();
@@ -16,19 +15,14 @@ const Message = ({ message }) => {
 
 	return (
 		<div className={`chat ${chatClassName}`}>
-	<div className='chat-image avatar'>
-		<div className='w-10 h-10 rounded-full overflow-hidden'>
-			<img alt='Tailwind CSS chat bubble component' src={profilePic} className='object-cover w-full h-full' />
+			<div className='chat-image avatar'>
+				<div className='w-10 rounded-full'>
+					<img alt='Tailwind CSS chat bubble component' src={profilePic} />
+				</div>
+			</div>
+			<div className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass} pb-2`}>{message.message}</div>
+			<div className='chat-footer opacity-50 text-xs flex gap-1 items-center'>{formattedTime}</div>
 		</div>
-	</div>
-	<div className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass} pb-2 break-words max-w-full`}>
-		{message.message}
-	</div>
-	<div className='chat-footer opacity-50 text-xs flex gap-1 items-center'>
-		{formattedTime}
-	</div>
-</div>
 	);
 };
-
-export default Message
+export default Message;
