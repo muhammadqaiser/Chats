@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 
 const Message = ({ message }) => {
     const { chatUser } = useChatContext();
-    const { selectedConversation } = useConversation();
-    const fromMe = message.senderId === chatUser._id;
-    const formattedTime = extractTime(message.createdAt);
-    const chatClassName = fromMe ? "chat-end" : "chat-start";
-    const profilePic = fromMe ? chatUser.profilePic : selectedConversation?.profilePic;
+	const { selectedConversation } = useConversation();
+	const fromMe = message.senderId === chatUser._id;
+	const formattedTime = extractTime(message.createdAt);
+	const chatClassName = fromMe ? "chat-end" : "chat-start";
+	const profilePic = fromMe ? chatUser.profilePic : selectedConversation?.profilePic;
 
     const [selectedTheme, setSelectedTheme] = useState("1");
 

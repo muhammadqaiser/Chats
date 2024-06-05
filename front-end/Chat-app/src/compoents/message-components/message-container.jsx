@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Messages from './messages';
-import MessageInput from './message-input';
-import { TiMessages } from "react-icons/ti";
 import useConversation from '../../zustand/useConversation';
+import MessageInput from './message-input';
+import Messages from './messages';
+import { TiMessages } from "react-icons/ti";
 import { useChatContext } from '../../context/chats-context';
 
 const MessageContainer = () => {
