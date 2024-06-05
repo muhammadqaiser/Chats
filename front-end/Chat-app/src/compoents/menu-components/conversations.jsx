@@ -12,9 +12,9 @@ const Conversations = () => {
   );
 
   return (
-    <div className='py-2 flex flex-col overflow-auto'>
+    <div className='flex flex-col overflow-auto mb-8.5'>
       {loading
-        ? [...Array(5)].map((_, idx) => <ConversationSkeleton key={idx} />)
+        ? [...Array(4)].map((_, idx) => <ConversationSkeleton key={idx} />)
         : sortedConversations.map((conversation, idx) => (
             <Conversation
               key={conversation._id}

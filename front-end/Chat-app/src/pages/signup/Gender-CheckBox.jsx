@@ -1,7 +1,7 @@
 import React from 'react'
 
 const GenderCheckBox = ({onCheckboxChange,selectedGender}) => {
-  return (
+	return (
 	<div className='flex'>
 	<div className='form-control'>
 		<label className={`label gap-2 cursor-pointer ${selectedGender === "male" ? "selected" : ""}`}>
@@ -26,7 +26,7 @@ const GenderCheckBox = ({onCheckboxChange,selectedGender}) => {
 		</label>
 	</div>
 </div>
-  );
+	);
 }
 
 export default GenderCheckBox
