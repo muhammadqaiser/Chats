@@ -27,7 +27,7 @@ const MessageContainer = () => {
       case "2":
         return "bg-green-800 px-4 py-2 mb-2";
       case "3":
-        return "bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 px-4 py-2 mb-2"; // Adjust if needed
+        return "bg-gradient-to-r from-blue-500 via-purple-500 to-red-500 px-4 py-2 mb-2";
       default:
         return "bg-blue-500";
     }
@@ -41,8 +41,8 @@ const MessageContainer = () => {
         <>
           {/* Header */}
           <div className={getBgColorClass()}>
-            <span className='label-text'></span> 
-            <span className={`font-bold text-white `}>{selectedConversation.fullName}</span>
+            <span className='label-text'></span>
+            <span className={`font-bold text-white`}>{selectedConversation.fullName}</span>
           </div>
           <Messages />
           <MessageInput />

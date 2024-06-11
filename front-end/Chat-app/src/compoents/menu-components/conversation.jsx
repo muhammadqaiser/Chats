@@ -1,7 +1,6 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { useSocketContext } from "../../context/socketcontext";
 import useConversation from "../../zustand/useConversation";
-import { useChatContext } from "../../context/chats-context"; // Import the ChatContext
 
 const Conversation = ({ conversation, lastIdx }) => {
     const { selectedConversation, setSelectedConversation } = useConversation();
@@ -11,21 +10,13 @@ const Conversation = ({ conversation, lastIdx }) => {
     const isOnline = onlineUsers.includes(conversation._id);
 
     const [selectedTheme, setSelectedTheme] = useState("1");
-    const { chatUser } = useChatContext(); // Get the chatUser from ChatContext
 
     useEffect(() => {
         const savedTheme = localStorage.getItem('selectedTheme');
         if (savedTheme) {
             setSelectedTheme(savedTheme);
         }
-
-        return () => {
-            // Clear theme data from localStorage if chatUser is null (user logged out)
-            if (!chatUser) {
-                localStorage.removeItem('selectedTheme');
-            }
-        };
-    }, [chatUser]); // Listen for changes in chatUser
+    }, []);
 
     const getConversationClass = () => {
         switch (selectedTheme) {
@@ -40,10 +31,23 @@ const Conversation = ({ conversation, lastIdx }) => {
         }
     };
 
+    const hoverClass = () => {
+        switch (selectedTheme) {
+            case "1":
+                return "hover:bg-sky-500 hover:text-white";
+            case "2":
+                return "hover:bg-green-900 hover:text-white";
+            case "3":
+                return "hover:bg-gradient-to-r hover:from-blue-500 hover:via-purple-500 hover:to-red-500 hover:text-white";
+            default:
+                return "hover:bg-sky-500 hover:text-white";
+        }
+    };
+
     return (
         <>
             <div
-                className={`flex gap-3 items-center hover:${getConversationClass()} rounded px-2 py-1 cursor-pointer ${isSelected ? getConversationClass() : ""}`}
+                className={`flex gap-3 items-center rounded px-2 py-3 cursor-pointer ${isSelected ? getConversationClass() : ""} ${hoverClass()}`}
                 onClick={() => setSelectedConversation(conversation)}
             >
                 <div className={`avatar ${isOnline ? "online" : ""}`}>
